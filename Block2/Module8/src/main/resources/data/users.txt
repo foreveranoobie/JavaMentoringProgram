@@ -1,0 +1,5 @@
+username "john.doe"|firstname "John"|lastname "Doe"|email "john.doe@gmail.com"|age "30"|createDate "2021-05-10T10:37:00"
+username "someuser"|firstname "Alice"|lastname "Cooper"|email "alice.cooper@gmail.com"|age "22"|createDate "2021-06-26T16:13:00"
+username "bill123"|firstname "Bill"|lastname "Williams"|email "williamsb@email.com"|age "42"|createDate "2020-10-08T08:07:00"
+username "rich"|firstname "Richard"|lastname "Johnson"|email "johnsonr@yahoo.com"|age "32"|createDate "2021-01-24T12:11:00"
+username "superman100"|firstname "Victor"|lastname "Reinz"|email "reinz.victor@gmail.com"|age "28"|createDate "2020-11-15T10:44:00"

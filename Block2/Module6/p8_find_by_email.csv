@@ -1,0 +1,6 @@
+"QUERY PLAN"
+"Seq Scan on users  (cost=0.00..3288.00 rows=10 width=93) (actual time=10.299..17.971 rows=1 loops=1)"
+"  Filter: ((email)::text ~~ '%Garry.Williams2000%'::text)"
+"  Rows Removed by Filter: 99999"
+"Planning Time: 0.146 ms"
+"Execution Time: 17.988 ms"

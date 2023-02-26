@@ -1,0 +1,14 @@
+-- Hash to calculate hashcode of email for certain user
+CREATE INDEX idx_users_email ON cinema.users USING HASH (email);
+
+-- Hash to calculate hashcode of username for certain user
+CREATE INDEX idx_users_username ON cinema.users USING HASH (username);
+
+-- Hash to calculate hashcode of title value for certain event
+CREATE INDEX idx_events_title ON cinema.events USING HASH (title);
+
+-- Using default index because we may use ranged operations for dates (before-after type)
+CREATE INDEX idx_events_date ON cinema.events (date);
+
+-- Using bitmap indexes because of having simple numerical values
+CREATE INDEX idx_tickets_user_event ON cinema.tickets (user_id, event_id);

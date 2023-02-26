@@ -1,0 +1,4 @@
+"QUERY PLAN"
+"Function Scan on insert_data  (cost=0.25..0.26 rows=1 width=4) (actual time=236954.264..236954.265 rows=1 loops=1)"
+"Planning Time: 0.023 ms"
+"Execution Time: 236956.156 ms"

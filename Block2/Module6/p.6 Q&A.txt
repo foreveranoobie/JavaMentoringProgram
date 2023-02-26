@@ -1,0 +1,8 @@
+-- Get index size in human-readable manner for a certain table
+select pg_size_pretty(pg_indexes_size('{table name}'));
+
+-- Save the result
+\copy (select pg_indexes_size('{table name}')) to 'DIR\index_size.txt';
+
+-- Remove index
+DROP INDEX index_name;

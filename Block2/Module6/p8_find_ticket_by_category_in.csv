@@ -1,0 +1,6 @@
+"QUERY PLAN"
+"Seq Scan on tickets  (cost=0.00..21162.00 rows=50357 width=203) (actual time=0.044..102.144 rows=49978 loops=1)"
+"  Filter: (category = ANY ('{STANDART,ULTRA}'::category[]))"
+"  Rows Removed by Filter: 50022"
+"Planning Time: 0.060 ms"
+"Execution Time: 103.248 ms"

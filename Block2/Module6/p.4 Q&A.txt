@@ -1,0 +1,26 @@
+1. What kind of index PostgreSQL creates when we use default CREATE INDEX command? 
+	- B-tree index
+
+2. What is the use case of each type of index? 
+	- B-tree: suits for ranged values (from-to)
+	- Bitmap index: for columns with low cardinality (such as binary value 0 or 1)
+	- Hash index: suits fine with using equality operator as it calculates exact hashcode for some data value
+	- GIST: uses B- or R-tree, stores complex ranged data (coordinates)
+	- SP-GIST: for large and nonbalanced data structures
+	- GIN: for composite data structure. Takes more space than GIST and more time to build itself
+	- BRIN: for certain large ranged values, which may be divided into the smaller partitions while having MIN and MAX values.
+
+3. Provide examples for indexes creating. 
+	- CREATE INDEX idx_users_email ON cinema.users USING HASH (email);
+
+4. Pros and cons of using indexes. 
+	Pros:
+		- Indexes are smaller than tables themselves;
+		- Indexes are ordered;
+		- Take less time for accessing large data with different kinds of data types;
+		- Reduce the need of scanning the full-table.
+	Cons:
+		- Too frequent reindexing may cause slowness on data accessing because of the reindexing process itselft and also of the blocking data in tables against writing;
+		- Indexes and their corresponding types must be configurated thoroughly without large excesivness because it may lead to slowness issues;
+		- Indexes are almost inefficient while working with small amount of data;
+		Because it takes some time to build indexes and the search time won't be giantly less than avoiding those indexes.

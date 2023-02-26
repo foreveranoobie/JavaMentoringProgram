@@ -1,0 +1,5 @@
+"QUERY PLAN"
+"Index Scan using idx_tickets_user_event on tickets  (cost=0.42..8.44 rows=1 width=203) (actual time=0.036..0.037 rows=0 loops=1)"
+"  Index Cond: ((user_id = 10528) AND (event_id = 78234))"
+"Planning Time: 0.084 ms"
+"Execution Time: 0.050 ms"

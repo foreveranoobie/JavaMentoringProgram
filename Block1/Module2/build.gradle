@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'com.bmuschko.clover' version "3.0.1"
+}
+
+group 'com.epam.storozhuk'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
+    implementation group: 'org.apache.maven.plugins', name: 'maven-checkstyle-plugin', version: '3.1.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.11.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.7.0'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-suite-api', version: '1.8.0-M1'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.8.0-M1'
+    clover 'org.openclover:clover:4.4.1'
+}
+
+clover {
+
+    testIncludes = ['**/']
+
+    targetPercentage = '75%'
+
+    report {
+        html = true
+        pdf = true
+
+        columns {
+            coveredMethods format: 'longbar', min: '75'
+            coveredStatements format: '%'
+            coveredBranches format: 'raw'
+            totalPercentageCovered format: '%', scope: 'package'
+        }
+
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+check.dependsOn cloverGenerateReport

@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'com.bmuschko.clover' version "2.2.5"
+}
+
+group 'com.epam.storozhuk'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+clover {
+
+    testIncludes = ['**/']
+
+    targetPercentage = '75%'
+
+    report {
+        html = true
+        pdf = true
+
+        columns {
+            coveredMethods format: 'longbar', min: '75'
+            coveredStatements format: '%'
+            coveredBranches format: 'raw'
+            totalPercentageCovered format: '%', scope: 'package'
+        }
+
+    }
+}
+
+dependencies {
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.11.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.7.0'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-suite-api', version: '1.8.0-M1'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.8.0-M1'
+    clover 'org.openclover:clover:4.4.1'
+}
+
+test {
+    useJUnitPlatform()
+            {includeTags 'integration-test'}
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+checkstyle {
+    toolVersion "7.6.1"
+    checkstyleTest.enabled = false
+}
+
+check.dependsOn cloverGenerateReport

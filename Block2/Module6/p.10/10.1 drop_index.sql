@@ -1,0 +1,1 @@
+drop index cinema.idx_tickets_user_event;

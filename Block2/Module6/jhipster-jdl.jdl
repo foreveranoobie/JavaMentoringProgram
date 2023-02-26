@@ -1,0 +1,46 @@
+
+entity Users {
+	id Integer required,
+    username String required,
+    firstname String,
+    lastame String,
+    age Integer min(0) max(100),
+    email String required,
+    createDate ZonedDateTime required,
+    updateDate ZonedDateTime required,
+}
+
+entity Events {
+	id Integer required 
+    title String required
+    date ZonedDateTime required
+    createDate ZonedDateTime required
+    updateDate ZonedDateTime required
+    }
+
+entity Tickets {
+	id Integer required,
+    eventId Integer required,
+    userId Integer required,
+    category Category required,
+    place Integer required,
+    cinemaName String required,
+    cinemaAddress String required,
+    cinemaPhoneArray Integer required,
+    cinemaFacilitiesArray Integer required,
+    purchaseDate ZonedDateTime required,
+    createDate ZonedDateTime required,
+    updateDate ZonedDateTime required
+}
+
+enum Category {
+    ULTRA, PREMIUM, STANDART
+}
+
+relationship OneToOne{
+	Tickets{userId} to Users{id}
+}
+
+relationship OneToOne{
+	Tickets{eventId} to Events{id}
+}

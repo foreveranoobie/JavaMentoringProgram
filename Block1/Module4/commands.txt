@@ -1,0 +1,41 @@
+1. echo 'CDP JaMP'
+2. uname -r | cat /etc/os-release
+3. pwd
+4. date
+5. date +"%T"
+-----------
+1. pwd
+2. cd /home
+3. ls -l
+4. sudo mkdir test
+5. sudo mv test newTest
+6. cd newTest
+7. date > nowFile
+8. cp nowFile copyOfNowFile
+9. ls -la
+10. touch emptyFile
+11. rm newTest/emptyFile | rm -r newTest
+------------
+1. ls -l
+2. mkdir permission
+3. cd permission
+4. echo 'This is very secret info' > secretFile
+5. chmod -r secretFile
+6. ls -la
+7. cat secretFile
+------------
+1. whoami
+2. sudo passwd alex
+3. sudo useradd editUser | sudo useradd readUser
+4. sudo addgroup editors | sudo addgroup readers
+5. sudo usermod -a -G editors editUser | sudo usermod -a -G readers readUser
+6. mkdir read | mkdir edit
+7.1. sudo chown -R :editors edit | sudo chmod -R o-rwx edit | sudo chmod -R g+rwx edit
+7.2. sudo chown :readers read | sudo chmod -R o-rwx read | sudo chmod -R g-w read
+------------
+1. ps
+2. ps aux
+3. ps -u
+4. top
+5. top -o %MEM%
+
