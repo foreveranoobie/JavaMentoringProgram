@@ -1,0 +1,3 @@
+# ignore .idea and target dirs for all IDEA-projects
+**/.idea
+**/target
